@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>WebStore</title>
+
+    <!--    <link th:href="@{./css/http_stackpath.bootstrapcdn.com_bootstrap_4.5.0_css_bootstrap.css}" rel="stylesheet"-->
+    <!--          type="text/css"/>-->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script src="/webjars/popper.js/1.14.1/popper.min.js"></script>
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
+    <!--          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+    <link th:href="@{./css/default.css}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div th:insert="nav.html :: nav"></div>
+
+<main>
+    <div th:insert="tabs.html :: tabs"></div>
+
+    <form action="/createProduct" method="post">
+        <div class="inputFields">
+            <!--        <input type="text" placeholder="id" name="id">&ndash;&gt;-->
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="price" name="price">
+            <select name="type">
+                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">
+                </option>
+            </select>
+            <button type="submit">popipo</button>
+        </div>
+    </form>
+
+    <div class="home">
+        <div class="grid-container">
+            <div th:each="p : ${products}">
+                <div>
+                    <img src="image/bear.jpg" width="200" height="200">
+                    <span th:text="${p.getName()}" id="getName"></span>
+                    <br><span th:text="${p.getPrice()}"></span>
+                    <br><span th:text="${p.getProductType().getType()}"></span>
+                    <script th:src="js/popipo.js" th:inline=""></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

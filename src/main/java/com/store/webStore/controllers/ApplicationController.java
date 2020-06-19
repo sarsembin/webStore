@@ -58,6 +58,12 @@ public class ApplicationController {
         return "products";
     }
 
+    @PostMapping("/createProductType")
+    public String createType(@RequestParam String type){
+        productTypeRepository.save(new ProductType(type));
+        return "redirect:/productList";
+    }
+
     @GetMapping("/about")
     public String aboutUs(){
         return "about";

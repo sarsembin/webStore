@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>WebStore</title>
 
-    <!--    <link th:href="@{./css/http_stackpath.bootstrapcdn.com_bootstrap_4.5.0_css_bootstrap.css}" rel="stylesheet"-->
-    <!--          type="text/css"/>-->
     <link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
@@ -35,6 +33,13 @@
         </div>
     </form>
 
+    <form action="/createProductType" method="post">
+        <div class="inputFields">
+            <input type="text" placeholder="type" name="type">
+            <button type="submit">createType</button>
+        </div>
+    </form>
+
     <div class="home">
         <div class="grid-container">
             <div th:each="p : ${products}">
@@ -43,7 +48,7 @@
                     <span th:text="${p.getName()}" id="getName"></span>
                     <br><span th:text="${p.getPrice()}"></span>
                     <br><span th:text="${p.getProductType().getType()}"></span>
-                    <script th:src="js/popipo.js" th:inline=""></script>
+                    <script src="js/popipo.js"></script>
                 </div>
             </div>
         </div>

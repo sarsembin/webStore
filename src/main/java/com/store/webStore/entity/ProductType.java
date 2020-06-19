@@ -18,4 +18,8 @@ public class ProductType {
     @GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String type;
+
+    public ProductType(String type){
+        this.type = type;
+    }
 }

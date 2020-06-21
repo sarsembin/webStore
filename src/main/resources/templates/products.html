@@ -5,9 +5,6 @@
     <title>WebStore</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
-    <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
-    <script src="/webjars/popper.js/1.14.1/popper.min.js"></script>
     <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
     <!--          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
     <link th:href="@{./css/default.css}" rel="stylesheet" type="text/css"/>
@@ -17,9 +14,17 @@
 
 <div th:insert="nav.html :: nav"></div>
 
-<main>
-    <div th:insert="tabs.html :: tabs"></div>
 
+<form class="filter" action="/filterByType" method="get">
+    <div class="btn-group-vertical" data-toggle="button">
+        <label class="btn btn-secondary active" th:each="pt : ${productsType}">
+            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">
+        </label>
+    </div>
+    <br><button type="submit" class="ababa">ababa</button>
+</form>
+
+<main>
     <form action="/createProduct" method="post">
         <div class="inputFields">
             <!--        <input type="text" placeholder="id" name="id">&ndash;&gt;-->
@@ -48,12 +53,16 @@
                     <span th:text="${p.getName()}" id="getName"></span>
                     <br><span th:text="${p.getPrice()}"></span>
                     <br><span th:text="${p.getProductType().getType()}"></span>
-                    <script src="js/popipo.js"></script>
                 </div>
             </div>
         </div>
     </div>
 
 </main>
+<script src="js/popipo.js"></script>
+
+<script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="/webjars/popper.js/1.14.1/popper.min.js"></script>
+<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
 </body>
 </html>

@@ -67,3 +67,18 @@ button {
     text-align: center;
     color: #eaeaea;
 }
+.filter{
+    top: 30%;
+    left: 8%;
+    position: fixed;
+    background-color: rgba(33, 37, 41, 0.9);
+    padding: 10px;
+    color: #eaeaea;
+}
+.filter > div{
+    padding: 10px;
+}
+.ababa{
+    width: 100%;
+    text-align: center;
+}

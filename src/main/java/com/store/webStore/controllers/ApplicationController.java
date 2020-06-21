@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.jws.WebParam;
+import java.security.acl.LastOwnerException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,8 +54,12 @@ public class ApplicationController {
     }
 
     @GetMapping("/filterByType")
-    public String filterByType(Model model, @RequestParam String type){
-        model.addAttribute("products", productRepository.findByProductType(type));
+    public String filterByType(Model model, @RequestParam("checkbox") List<Long> id){
+        List<Product> products = new ArrayList<>();
+        for (Long p : id) {
+            products.addAll(productRepository.findAllByProductType(productTypeRepository.getOne(p)));
+        }
+        model.addAttribute("products", products);
         model.addAttribute("productsType", productTypeRepository.findAll());
         return "products";
     }

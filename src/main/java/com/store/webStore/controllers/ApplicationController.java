@@ -9,11 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jws.WebParam;
-import java.security.acl.LastOwnerException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ApplicationController {
@@ -23,12 +20,7 @@ public class ApplicationController {
 
     @Autowired
     ProductTypeRepository productTypeRepository;
-
-    @GetMapping("/hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "world") String name){
-        return String.format("Hello %s!", name);
-    }
-
+    // Default get post
     @GetMapping("/productList")
     public String getAllProducts(Model model){
         model.addAttribute("products", productRepository.findAll());
@@ -74,32 +66,4 @@ public class ApplicationController {
     public String aboutUs(){
         return "about";
     }
-
-
-	/*@Bean
-	public CommandLineRunner demo(ProductRepository repository){
-		return (args) -> {
-			repository.save(new Product("bounty", 300 ));
-			repository.save(new Product("snickers", 350));
-			repository.save(new Product("mars", 250));
-			repository.save(new Product("mars", 220));
-
-			log.info("Products found by findAll()");
-			for(Product product : repository.findAll()){
-				log.info(product.toString());
-			}
-
-			log.info("Product with id 2");
-			Product productId2 = repository.findById(2);
-			log.info(productId2.toString());
-
-			log.info("Products with name mars");
-			List<Product> marsBars = repository.findByName("mars");
-			for(Product product : marsBars){
-				log.info(product.toString());
-			}
-
-
-		};
-	}*/
 }

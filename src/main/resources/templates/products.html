@@ -16,50 +16,52 @@
 <p id="testInput" style="size: 20px"></p>
 
 <form class="filter" action="/filterByType" method="get">
-    <div class="btn-group-vertical" data-toggle="button">
-        <label class="btn btn-secondary active" th:each="pt : ${productsType}">
-            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">
+    <div class="btn-group-vertical" data-toggle="button" id="typeCheckbox">
+        <label class="btn btn-secondary active">
+<!--            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
         </label>
     </div>
-    <br><button type="submit" class="ababa">ababa</button>
+    <br>
+    <button type="submit" class="ababa">ababa</button>
 </form>
 
 <main>
-    <form action="/createProduct" method="post">
-        <div class="inputFields">
-            <!--        <input type="text" placeholder="id" name="id">&ndash;&gt;-->
-            <input type="text" placeholder="name" name="name">
-            <input type="text" placeholder="price" name="price">
-            <select name="type" id = "productTypeSelect">
-<!--                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
-<!--                </option>-->
-            </select>
-            <button type="submit" id="popipoBtn" onclick="ReadFile('/productListAJAX', 'TH')">popipo</button>
-        </div>
-    </form>
+    <div class="inputFields">
+        <input type="text" placeholder="name" name="name" id="inputName">
+        <input type="text" placeholder="price" name="price" id="inputPrice">
+        <select name="type" id="productTypeSelect">
+            <!--                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
+            <!--                </option>-->
+        </select>
+        <button onclick=createProduct('/createProductAJAX')>popipo</button>
+    </div>
 
-    <form>
-        <div class="inputFields">
-            <input type="text" placeholder="type" name="type" id="createProductTypeInput">
-            <button type="submit" onclick = createType("/createProductTypeAJAX")>createType</button>
-        </div>
-    </form>
+    <div class="inputFields">
+        <input type="text" placeholder="type" name="type" id="createProductTypeInput">
+        <button onclick=createType("/createProductTypeAJAX")>createType</button>
+    </div>
 
     <div class="home">
         <div class="grid-container" id="productList">
-<!--            <div th:each="p : ${products}" id="TH">-->
-<!--                <div id="blockWithProducts">-->
-<!--                    <img src="image/bear.jpg" width="200" height="200">-->
-<!--                    <span th:text="${p.getName()}" id="getName"></span>-->
-<!--                    <br><span th:text="${p.getPrice()}" id="getPrice"></span>-->
-<!--                    <br><span th:text="${p.getProductType().getType()}" id="getProductType"></span>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <div th:each="p : ${products}" id="TH">-->
+            <!--                <div id="blockWithProducts">-->
+            <!--                    <img src="image/bear.jpg" width="200" height="200">-->
+            <!--                    <span th:text="${p.getName()}" id="getName"></span>-->
+            <!--                    <br><span th:text="${p.getPrice()}" id="getPrice"></span>-->
+            <!--                    <br><span th:text="${p.getProductType().getType()}" id="getProductType"></span>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 </main>
 
+<!--test button-->
+<!--<button onclick=window.alert(document.getElementById("productTypeSelect").value)>popipo</button>-->
+
 <script src="js/popipo.js"></script>
+<script src="js/productListAJAX.js"></script>
+<script src="js/createTypeAJAX.js"></script>
+<script src="js/createProductAJAX.js"></script>
 
 <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="/webjars/popper.js/1.14.1/popper.min.js"></script>

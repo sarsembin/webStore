@@ -13,7 +13,7 @@
 <body>
 
 <div th:insert="nav.html :: nav"></div>
-
+<p id="testInput" style="size: 20px"></p>
 
 <form class="filter" action="/filterByType" method="get">
     <div class="btn-group-vertical" data-toggle="button">
@@ -30,35 +30,35 @@
             <!--        <input type="text" placeholder="id" name="id">&ndash;&gt;-->
             <input type="text" placeholder="name" name="name">
             <input type="text" placeholder="price" name="price">
-            <select name="type">
-                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">
-                </option>
+            <select name="type" id = "productTypeSelect">
+<!--                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
+<!--                </option>-->
             </select>
-            <button type="submit">popipo</button>
+            <button type="submit" id="popipoBtn" onclick="ReadFile('/productListAJAX', 'TH')">popipo</button>
         </div>
     </form>
 
-    <form action="/createProductType" method="post">
+    <form>
         <div class="inputFields">
-            <input type="text" placeholder="type" name="type">
-            <button type="submit">createType</button>
+            <input type="text" placeholder="type" name="type" id="createProductTypeInput">
+            <button type="submit" onclick = createType("/createProductTypeAJAX")>createType</button>
         </div>
     </form>
 
     <div class="home">
-        <div class="grid-container">
-            <div th:each="p : ${products}">
-                <div>
-                    <img src="image/bear.jpg" width="200" height="200">
-                    <span th:text="${p.getName()}" id="getName"></span>
-                    <br><span th:text="${p.getPrice()}"></span>
-                    <br><span th:text="${p.getProductType().getType()}"></span>
-                </div>
-            </div>
+        <div class="grid-container" id="productList">
+<!--            <div th:each="p : ${products}" id="TH">-->
+<!--                <div id="blockWithProducts">-->
+<!--                    <img src="image/bear.jpg" width="200" height="200">-->
+<!--                    <span th:text="${p.getName()}" id="getName"></span>-->
+<!--                    <br><span th:text="${p.getPrice()}" id="getPrice"></span>-->
+<!--                    <br><span th:text="${p.getProductType().getType()}" id="getProductType"></span>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
-
 </main>
+
 <script src="js/popipo.js"></script>
 
 <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>

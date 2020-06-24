@@ -26,7 +26,7 @@ function createType(filename)
         for(var i = 0; i < productTypeList.length; i++){
             outputProductTypeList += '<option value = ' + productTypeList[i].id + '>' + productTypeList[i].type + '</option>';
             outputProductTypeCheckbox += '<label class="btn btn-secondary active">' +
-                '<input type="checkbox" name="checkbox" value = ' + productTypeList[i].id + '>' +
+                '<input type="checkbox" name="checkbox" class="daCheck" value = ' + productTypeList[i].id + '>' +
                 productTypeList[i].type + '</label>';
         }
         document.getElementById("productList").innerHTML = outputProductList;

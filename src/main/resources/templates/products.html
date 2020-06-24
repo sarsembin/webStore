@@ -14,16 +14,13 @@
 
 <div th:insert="nav.html :: nav"></div>
 <p id="testInput" style="size: 20px"></p>
-
-<form class="filter" action="/filterByType" method="get">
+<div class="filter">
     <div class="btn-group-vertical" data-toggle="button" id="typeCheckbox">
-        <label class="btn btn-secondary active">
-<!--            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
-        </label>
+            <!--            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
     </div>
     <br>
-    <button type="submit" class="ababa">ababa</button>
-</form>
+    <button class="ababa" id="ababa" onclick=filterByType()>ababa</button>
+</div>
 
 <main>
     <div class="inputFields">

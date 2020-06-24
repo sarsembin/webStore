@@ -86,5 +86,3 @@ function SendRequest(r_method, r_path, r_args, r_handler)
         Request.send(null);
     }
 }
-
-ReadFile("/productListAJAX");

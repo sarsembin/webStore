@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +12,8 @@ import javax.persistence.Id;
 @Entity
 public class ProductType {
     @Id
-    @GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="seqPT", initialValue=1, allocationSize=250)
+    @GeneratedValue(generator = "seqPT", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String type;
 

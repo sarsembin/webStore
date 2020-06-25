@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -40,6 +42,14 @@ public class RestControllerAJAX {
         return response;
     }
 
-    /*@GetMapping("filterByTypeAJAX")
-    public Response filterByTypeAJAX(@RequestParam)*/
+    @PostMapping("/filterByTypeAJAX")
+    public Response filterByTypeAJAX(@RequestParam List<Long> id){
+        List<Product> products = new ArrayList<>();
+        for(Long p : id){
+            products.addAll(productRepository.findAllByProductType(productTypeRepository.findById(p).get()));
+            System.out.println(p);
+        }//error here
+        Response response= new Response(products, productTypeRepository.findAll());
+        return response;
+    }
 }

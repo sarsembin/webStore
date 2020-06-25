@@ -13,8 +13,8 @@ import javax.persistence.*;
 @Entity
 public class Product {
     @Id
-    @SequenceGenerator(name="seq", initialValue=1, allocationSize=250)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @SequenceGenerator(name="seqP", initialValue=1, allocationSize=250)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqP")
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;

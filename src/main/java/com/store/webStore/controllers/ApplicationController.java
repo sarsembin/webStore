@@ -49,7 +49,7 @@ public class ApplicationController {
     public String filterByType(Model model, @RequestParam("checkbox") List<Long> id){
         List<Product> products = new ArrayList<>();
         for (Long p : id) {
-            products.addAll(productRepository.findAllByProductType(productTypeRepository.getOne(p)));
+            products.addAll(productRepository.findAllByProductType(productTypeRepository.findById(p).get()));
         }
         model.addAttribute("products", products);
         model.addAttribute("productsType", productTypeRepository.findAll());

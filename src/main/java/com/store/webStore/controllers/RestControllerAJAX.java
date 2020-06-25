@@ -21,7 +21,8 @@ public class RestControllerAJAX {
     ProductRepository productRepository;
     @Autowired
     ProductTypeRepository productTypeRepository;
-
+    // NEW RESTCONTROLLER FOR AJAX,
+    // THAT SENDS RESPONSE CLASS TO THE JS FILES IN JSON FORMAT,
     @GetMapping("/productListAJAX")
     public Response getProductsAJAX(){
         Response response = new Response(productRepository.findAll(), productTypeRepository.findAll());
@@ -48,7 +49,7 @@ public class RestControllerAJAX {
         for(Long p : id){
             products.addAll(productRepository.findAllByProductType(productTypeRepository.findById(p).get()));
             System.out.println(p);
-        }//error here
+        }
         Response response= new Response(products, productTypeRepository.findAll());
         return response;
     }

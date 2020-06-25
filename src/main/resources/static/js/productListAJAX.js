@@ -38,5 +38,5 @@ function ReadFile(filename)
     //Отправляем запрос
     SendRequest("GET",filename,"",Handler);
 }
-
+// THIS IS FOR THE FIRST INITIALIZATION OF THE PROGRAM, TO GET DATA TO THE PAGE WITHOUT PRESSING ANY BUTTONS
 ReadFile("/productListAJAX");

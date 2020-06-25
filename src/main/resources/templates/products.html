@@ -5,8 +5,7 @@
     <title>WebStore</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
-    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
-    <!--          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+
     <link th:href="@{./css/default.css}" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -16,7 +15,7 @@
 <p id="testInput" style="size: 20px"></p>
 <div class="filter">
     <div class="btn-group-vertical" data-toggle="button" id="typeCheckbox">
-            <!--            <input type="checkbox" name="checkbox" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
+            <!-- CHECK BOXES WILL BE INSERTED HERE -->
     </div>
     <br>
     <button class="ababa" id="ababa" onclick=filterByType('/filterByTypeAJAX')>ababa</button>
@@ -27,8 +26,7 @@
         <input type="text" placeholder="name" name="name" id="inputName">
         <input type="text" placeholder="price" name="price" id="inputPrice">
         <select name="type" id="productTypeSelect">
-            <!--                <option th:each="pt : ${productsType}" th:value="${pt.getId()}" th:text="${pt.getType()}">-->
-            <!--                </option>-->
+<!--            PRODUCT TYPE SELECT FOR CREATING NEW PRODUCT WILL BE HERE -->
         </select>
         <button onclick=createProduct('/createProductAJAX')>popipo</button>
     </div>
@@ -40,20 +38,10 @@
 
     <div class="home">
         <div class="grid-container" id="productList">
-            <!--            <div th:each="p : ${products}" id="TH">-->
-            <!--                <div id="blockWithProducts">-->
-            <!--                    <img src="image/bear.jpg" width="200" height="200">-->
-            <!--                    <span th:text="${p.getName()}" id="getName"></span>-->
-            <!--                    <br><span th:text="${p.getPrice()}" id="getPrice"></span>-->
-            <!--                    <br><span th:text="${p.getProductType().getType()}" id="getProductType"></span>-->
-            <!--                </div>-->
-            <!--            </div>-->
+<!--            IMG OF THE BEAR, PRODUCT NAME, PRICE AND TYPE WILL BE INSERTED HERE-->
         </div>
     </div>
 </main>
-
-<!--test button-->
-<!--<button onclick=window.alert(document.getElementById("productTypeSelect").value)>popipo</button>-->
 
 <script src="js/popipo.js"></script>
 <script src="js/productListAJAX.js"></script>
@@ -64,5 +52,6 @@
 <script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="/webjars/popper.js/1.14.1/popper.min.js"></script>
 <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+
 </body>
 </html>

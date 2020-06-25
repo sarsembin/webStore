@@ -10,7 +10,7 @@ function createProduct(filename)
         let responseData = JSON.parse(Request.responseText);
         let productList = responseData.productList;
         let productTypeList = responseData.productTypeList;
-
+        // INSERTING ONLY NECESSARY DATA IN HTML, BECAUSE WE DONT HAVE TO UPDATE EVERYTHING
         outputProductList = "";
         for (var i = 0; i < productList.length; i++){
             outputProductList += '<div>' +
@@ -26,11 +26,12 @@ function createProduct(filename)
         }
         document.getElementById("productList").innerHTML = outputProductList;
         document.getElementById("productTypeSelect").innerHTML = outputProductTypeList;
-
+        // CLEARING INPUT FILEDS AFTER WE PRESSED ON THE BUTTON
         document.getElementById("inputName").value = "";
         document.getElementById("inputPrice").value = "";
     }
     //Отправляем запрос
+    // FETCHING DATA FROM HTML
     let inputName = document.getElementById("inputName").value;
     let inputPrice = document.getElementById("inputPrice").value;
     let inputType = document.getElementById("productTypeSelect").value;

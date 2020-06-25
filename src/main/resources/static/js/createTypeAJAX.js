@@ -10,7 +10,7 @@ function createType(filename)
         let responseData = JSON.parse(Request.responseText);
         let productList = responseData.productList;
         let productTypeList = responseData.productTypeList;
-
+        // INSERTING DATA INTO HTML
         outputProductList = "";
         for (var i = 0; i < productList.length; i++){
             outputProductList += '<div>' +
@@ -32,7 +32,7 @@ function createType(filename)
         document.getElementById("productList").innerHTML = outputProductList;
         document.getElementById("productTypeSelect").innerHTML = outputProductTypeList;
         document.getElementById("typeCheckbox").innerHTML = outputProductTypeCheckbox;
-
+        // CLEARING THE INPUT FIELD IN HTML AFTER WE PRESSED ON THE BUTTON
         document.getElementById("createProductTypeInput").value = "";
     }
     //Отправляем запрос

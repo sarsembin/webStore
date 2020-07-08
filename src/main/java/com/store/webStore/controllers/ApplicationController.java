@@ -62,6 +62,8 @@ public class ApplicationController {
         return "redirect:/productList";
     }
 
+
+
     @GetMapping("/about")
     public String aboutUs(){
         return "about";

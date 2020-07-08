@@ -48,7 +48,6 @@ public class RestControllerAJAX {
         List<Product> products = new ArrayList<>();
         for(Long p : id){
             products.addAll(productRepository.findAllByProductType(productTypeRepository.findById(p).get()));
-            System.out.println(p);
         }
         Response response= new Response(products, productTypeRepository.findAll());
         return response;
